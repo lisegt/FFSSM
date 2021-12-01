@@ -7,13 +7,10 @@ import java.time.LocalDate;
 
 public class Licence {
 
-    public Personne possesseur;
-
-    public String numero;
-
-    public LocalDate delivrance;
-
-    public Club club;
+    private Personne possesseur;
+    private String numero;
+    private LocalDate delivrance;
+    private Club club;
 
     public Licence(Personne possesseur, String numero, LocalDate delivrance, Club club) {
         this.possesseur = possesseur;
