@@ -13,7 +13,8 @@ public class Club {
     private String nom;
     private String adresse;
     private String telephone;
-    private Set<Plongee> activites;
+    private Set<Plongee> activites = new HashSet<>();
+    private Set<Licence> licencesDelivrees = new HashSet<>();
 
     public Club(Moniteur président, String nom, String telephone) {
         this.president = président;
@@ -42,7 +43,15 @@ public class Club {
      * @param p la nouvelle plongée
      */
     public void organisePlongee(Plongee p) {
-        this.activites.add(p);
+        activites.add(p);
+    }
+
+    /**
+     * Ajoute une licence pour un club
+     * @param l la nouvelle licence
+     */
+    public void ajouteLicence(Licence l) {
+        licencesDelivrees.add(l);
     }
     
     
@@ -76,6 +85,22 @@ public class Club {
 
     public void setTelephone(String telephone) {
         this.telephone = telephone;
+    }
+
+    public Set<Plongee> getActivites() {
+        return activites;
+    }
+
+    public void setActivites(Set<Plongee> activites) {
+        this.activites = activites;
+    }
+
+    public Set<Licence> getLicencesDelivrees() {
+        return licencesDelivrees;
+    }
+
+    public void setLicencesDelivrees(Set<Licence> licencesDelivrees) {
+        this.licencesDelivrees = licencesDelivrees;
     }
 
     @Override

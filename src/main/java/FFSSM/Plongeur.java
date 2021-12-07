@@ -52,7 +52,12 @@ public class Plongeur extends Personne {
      * 
      **/
     public void ajouteLicence(String numero, LocalDate delivrance, Club c) {
-        licences.add(new Licence(this, numero, delivrance, c));
+        Licence licence = new Licence(this, numero, delivrance, c);
+        //ajout de la licence aux licences su plongeur
+        licences.add(licence);
+        //ajout de la licence aux licences du club
+        c.ajouteLicence(licence);
+
     }
 
     /**

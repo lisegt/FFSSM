@@ -33,6 +33,51 @@ public class Plongee {
 		return date;
 	}
 
+
+	public Site getLieu() {
+		return lieu;
+	}
+
+	public void setLieu(Site lieu) {
+		this.lieu = lieu;
+	}
+
+	public Moniteur getChefDePalanquee() {
+		return chefDePalanquee;
+	}
+
+	public void setChefDePalanquee(Moniteur chefDePalanquee) {
+		this.chefDePalanquee = chefDePalanquee;
+	}
+
+	public void setDate(LocalDate date) {
+		this.date = date;
+	}
+
+	public int getProfondeur() {
+		return profondeur;
+	}
+
+	public void setProfondeur(int profondeur) {
+		this.profondeur = profondeur;
+	}
+
+	public int getDuree() {
+		return duree;
+	}
+
+	public void setDuree(int duree) {
+		this.duree = duree;
+	}
+
+	public Set<Licence> getPalanquee() {
+		return palanquee;
+	}
+
+	public void setPalanquee(Set<Licence> palanquee) {
+		this.palanquee = palanquee;
+	}
+
 	/**
 	 * Détermine si la plongée est conforme. 
 	 * Une plongée est conforme si tous les plongeurs de la palanquée ont une

@@ -59,4 +59,21 @@ public class Moniteur extends Plongeur {
         lesEmbauches.get(lesEmbauches.size()-1).setFin(fin);    
     }
 
+    public int getNumeroDiplome() {
+        return numeroDiplome;
+    }
+
+    public void setNumeroDiplome(int numeroDiplome) {
+        this.numeroDiplome = numeroDiplome;
+    }
+
+    public List<Embauche> getLesEmbauches() {
+        return lesEmbauches;
+    }
+
+    public void setLesEmbauches(List<Embauche> lesEmbauches) {
+        this.lesEmbauches = lesEmbauches;
+    }
+
+    
 }
