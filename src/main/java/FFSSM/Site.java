@@ -6,7 +6,8 @@ package FFSSM;
 
 public class Site
 {
-	public String nom;
+	private String nom;
+	private String details;
 
 	public Site(String nom, String details) {
 		this.nom = nom;
@@ -21,7 +22,6 @@ public class Site
 		this.nom = nom;
 	}
 	
-		private String details;
 
 	/**
 	 * Get the value of details

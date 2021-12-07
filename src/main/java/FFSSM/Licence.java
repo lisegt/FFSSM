@@ -10,13 +10,13 @@ public class Licence {
     private Personne possesseur;
     private String numero;
     private LocalDate delivrance;
-    private Club club;
+    private Club emetteur;
 
-    public Licence(Personne possesseur, String numero, LocalDate delivrance, Club club) {
+    public Licence(Personne possesseur, String numero, LocalDate delivrance, Club emetteur) {
         this.possesseur = possesseur;
         this.numero = numero;
         this.delivrance = delivrance;
-        this.club = club;
+        this.emetteur = emetteur;
     }
 
     public Personne getPossesseur() {
@@ -31,8 +31,8 @@ public class Licence {
         return delivrance;
     }
 
-    public Club getClub() {
-        return club;
+    public Club getEmetteur() {
+        return emetteur;
     }
 
     /**
@@ -42,8 +42,11 @@ public class Licence {
      * @return vrai si valide à la date d
      **/
     public boolean estValide(LocalDate d) {
-         // TODO: Implémenter cette méthode
-        throw new UnsupportedOperationException("Pas encore implémenté");
+        LocalDate dateLimite = delivrance.plusYears(1);
+        if (d.isBefore(dateLimite)){
+            return true;
+        }
+        return false;
     }
 
 }

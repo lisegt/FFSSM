@@ -9,15 +9,13 @@ import java.util.Set;
 
 public class Plongee {
 
-	public Site lieu;
+	private Site lieu;
+	private Moniteur chefDePalanquee;
+	private LocalDate date;
+	private int profondeur;
+	private int duree;
 
-	public Moniteur chefDePalanquee;
-
-	public LocalDate date;
-
-	public int profondeur;
-
-	public int duree;
+	private Set<Licence> palanquee = new HashSet<>();
 
 	public Plongee(Site lieu, Moniteur chefDePalanquee, LocalDate date, int profondeur, int duree) {
 		this.lieu = lieu;
@@ -28,8 +26,7 @@ public class Plongee {
 	}
 
 	public void ajouteParticipant(Plongeur participant) {
-		// TODO: Implémenter cette méthode
-		throw new UnsupportedOperationException("Pas encore implémenté");
+		palanquee.add(participant.derniereLicence().orElseThrow(IllegalStateException::new));
 	}
 
 	public LocalDate getDate() {
@@ -43,8 +40,13 @@ public class Plongee {
 	 * @return vrai si la plongée est conforme
 	 */
 	public boolean estConforme() {
-		// TODO: Implémenter cette méthode
-		throw new UnsupportedOperationException("Pas encore implémenté");
+		boolean res = true;
+		for (Licence l : palanquee){
+			if (!l.estValide(date)){
+				res=false;
+			}
+		}
+		return res;
 	}
 
 }

@@ -3,6 +3,7 @@ package FFSSM;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class Plongeur extends Personne {
 	
@@ -11,7 +12,7 @@ public class Plongeur extends Personne {
     protected List<Licence> licences = new ArrayList<>();;
 
     public Plongeur(String numeroINSEE, String nom, String prenom, String adresse, String telephone,
-            LocalDate naissance, int niveau, GroupeSanguin groupe) {
+        LocalDate naissance, int niveau, GroupeSanguin groupe) {
         super(numeroINSEE, nom, prenom, adresse, telephone, naissance);
         this.niveau = niveau;
         this.groupe = groupe;
@@ -60,7 +61,11 @@ public class Plongeur extends Personne {
      * @return la derniere licence du joueur
      * 
      **/
-    public Licence derniereLicence() {
-        return licences.get(licences.size()-1);
-   }   
+    public Optional<Licence> derniereLicence() {
+        Licence res=licences.get(licences.size()-1);
+        if (this.licences.isEmpty()){
+            res=null;
+        }
+        return Optional.ofNullable(res);
+    } 
 }
